@@ -17,10 +17,10 @@ package io.github.thierrysquirrel.sparrow.init;
 
 import io.github.thierrysquirrel.sparrow.autoconfigure.SparrowProperties;
 import io.github.thierrysquirrel.sparrow.init.core.factory.execution.ConsumerInitFactoryExecution;
+import org.jspecify.annotations.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.lang.NonNull;
 
 /**
  * ClassName: ConsumerInit

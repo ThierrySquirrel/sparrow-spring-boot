@@ -24,13 +24,8 @@ package io.github.thierrysquirrel.sparrow.core.builder.constant;
  * @since JDK21
  **/
 public final class ThreadPoolExecutorBuilderConstant {
-    public static final int KEEP_ALIVE_TIME = 0;
 
-    public static final String SPARROW_PRODUCER = "SparrowProducer-%d";
     public static final int SPARROW_PRODUCER_CORE_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
-    public static final int SPARROW_PRODUCER_MAXIMUM_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
-
-    public static final String SPARROW_CONSUMER = "SparrowConsumer";
 
     private ThreadPoolExecutorBuilderConstant() {
     }

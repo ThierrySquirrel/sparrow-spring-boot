@@ -18,7 +18,7 @@ package io.github.thierrysquirrel.sparrow.core.consumer.factory;
 import io.github.thierrysquirrel.sparrow.core.consumer.domain.MethodDomain;
 import io.github.thierrysquirrel.sparrow.core.consumer.factory.constant.MethodFactoryConstant;
 import io.github.thierrysquirrel.sparrow.core.exception.SparrowException;
-import io.github.thierrysquirrel.sparrow.server.common.netty.coder.utils.SerializerUtils;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.coder.utils.SerializerUtils;
 
 import java.lang.reflect.Method;
 

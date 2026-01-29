@@ -15,10 +15,10 @@
  **/
 package io.github.thierrysquirrel.sparrow.aspect.core.execution;
 
+import io.github.thierrysquirrel.jellyfish.thread.pool.ThreadPool;
 import io.github.thierrysquirrel.sparrow.aspect.core.thread.execution.SparrowProducerThreadExecution;
 import io.github.thierrysquirrel.sparrow.core.constant.ThreadPoolExecutorConstant;
 
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * ClassName: SparrowProducerExecution
@@ -34,7 +34,7 @@ public class SparrowProducerExecution {
 
     public static void sendMessage(String sparrowServerUrl, String topic, byte[] message) {
         SparrowProducerThreadExecution sparrowProducerThreadExecution = new SparrowProducerThreadExecution(sparrowServerUrl, topic, message);
-        ThreadPoolExecutor sparrowProducer = ThreadPoolExecutorConstant.SPARROW_PRODUCER;
+        ThreadPool sparrowProducer = ThreadPoolExecutorConstant.SPARROW_PRODUCER;
         sparrowProducer.execute(sparrowProducerThreadExecution);
     }
 }

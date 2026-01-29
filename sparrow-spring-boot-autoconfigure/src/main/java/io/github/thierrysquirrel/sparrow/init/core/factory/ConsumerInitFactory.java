@@ -19,8 +19,8 @@ import io.github.thierrysquirrel.sparrow.core.consumer.domain.MethodDomain;
 import io.github.thierrysquirrel.sparrow.core.consumer.domain.builder.MethodDomainBuilder;
 import io.github.thierrysquirrel.sparrow.core.consumer.factory.MethodFactory;
 import io.github.thierrysquirrel.sparrow.core.consumer.listener.DefaultConsumerListener;
-import io.github.thierrysquirrel.sparrow.server.common.netty.consumer.init.client.SparrowConsumer;
-import io.github.thierrysquirrel.sparrow.server.common.netty.utils.constant.SocketAddressConstant;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.consumer.init.client.SparrowConsumer;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.utils.constant.SocketAddressConstant;
 
 import java.lang.reflect.Method;
 import java.util.List;

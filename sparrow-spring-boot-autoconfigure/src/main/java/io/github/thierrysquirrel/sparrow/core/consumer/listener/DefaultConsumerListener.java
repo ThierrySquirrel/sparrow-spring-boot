@@ -18,9 +18,11 @@ package io.github.thierrysquirrel.sparrow.core.consumer.listener;
 import io.github.thierrysquirrel.sparrow.core.consumer.domain.MethodDomain;
 import io.github.thierrysquirrel.sparrow.core.consumer.factory.MethodFactory;
 import io.github.thierrysquirrel.sparrow.core.exception.SparrowException;
-import io.github.thierrysquirrel.sparrow.server.common.netty.consumer.listener.MessageListener;
-import io.github.thierrysquirrel.sparrow.server.common.netty.consumer.listener.constant.ConsumerState;
-import lombok.extern.slf4j.Slf4j;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.consumer.listener.MessageListener;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.consumer.listener.constant.ConsumerState;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * ClassName: DefaultConsumerListener
@@ -30,8 +32,9 @@ import lombok.extern.slf4j.Slf4j;
  * @author ThierrySquirrel
  * @since JDK21
  **/
-@Slf4j
 public class DefaultConsumerListener implements MessageListener {
+    private static final Logger logger = Logger.getLogger(DefaultConsumerListener.class.getName());
+
     private final MethodDomain methodDomain;
 
     public DefaultConsumerListener(MethodDomain methodDomain) {
@@ -44,7 +47,8 @@ public class DefaultConsumerListener implements MessageListener {
             MethodFactory.messageInvoke(methodDomain, message);
             return ConsumerState.SUCCESS;
         } catch (SparrowException e) {
-            log.error("messageInvoke Error", e);
+            String logMsg = "messageInvoke Error";
+            logger.log(Level.WARNING, logMsg, e);
             return ConsumerState.FAIL;
         }
     }

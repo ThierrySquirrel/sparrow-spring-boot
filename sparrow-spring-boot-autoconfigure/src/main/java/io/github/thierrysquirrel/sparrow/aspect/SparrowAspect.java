@@ -20,13 +20,14 @@ import io.github.thierrysquirrel.sparrow.aspect.core.execution.SparrowAspectExec
 import io.github.thierrysquirrel.sparrow.aspect.utils.SparrowAspectUtils;
 import io.github.thierrysquirrel.sparrow.autoconfigure.SparrowProperties;
 import io.github.thierrysquirrel.sparrow.core.exception.SparrowException;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * ClassName: SparrowAspect
@@ -37,20 +38,36 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @since JDK21
  **/
 @Aspect
-@Data
-@Slf4j
 public class SparrowAspect {
+    private static final Logger logger = Logger.getLogger(SparrowAspect.class.getName());
+
     @Autowired
     private SparrowProperties sparrowProperties;
 
     @Pointcut("@annotation(io.github.thierrysquirrel.sparrow.annotation.Producer)")
     public void producerPointcut() {
-        log.debug("Start Producer");
+        String logMsg = "Start Producer";
+        logger.log(Level.INFO, logMsg);
     }
 
     @Around("producerPointcut()")
     public Object sparrowProducerAround(ProceedingJoinPoint point) throws SparrowException {
         return SparrowAspectExecution.sendMessage(point,
                 SparrowAspectUtils.getAnnotation(point, Producer.class), sparrowProperties.getSparrowServerUrl());
+    }
+
+    public SparrowProperties getSparrowProperties() {
+        return sparrowProperties;
+    }
+
+    public void setSparrowProperties(SparrowProperties sparrowProperties) {
+        this.sparrowProperties = sparrowProperties;
+    }
+
+    @Override
+    public String toString() {
+        return "SparrowAspect{" +
+                "sparrowProperties=" + sparrowProperties +
+                '}';
     }
 }

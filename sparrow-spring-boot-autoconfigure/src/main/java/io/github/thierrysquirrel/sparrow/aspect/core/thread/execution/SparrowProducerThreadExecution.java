@@ -16,7 +16,7 @@
 package io.github.thierrysquirrel.sparrow.aspect.core.thread.execution;
 
 import io.github.thierrysquirrel.sparrow.aspect.core.thread.AbstractSparrowProducerThread;
-import io.github.thierrysquirrel.sparrow.server.common.netty.producer.init.client.SparrowProducerCluster;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.producer.init.client.SparrowProducerCluster;
 
 /**
  * ClassName: SparrowProducerThreadExecution

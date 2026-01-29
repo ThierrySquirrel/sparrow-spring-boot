@@ -15,7 +15,6 @@
  **/
 package io.github.thierrysquirrel.sparrow.autoconfigure;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -26,9 +25,23 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author ThierrySquirrel
  * @since JDK21
  **/
-@Data
 @ConfigurationProperties(prefix = SparrowProperties.SPARROW_PREFIX)
 public class SparrowProperties {
     public static final String SPARROW_PREFIX = "sparrow";
     private String sparrowServerUrl;
+
+    public String getSparrowServerUrl() {
+        return sparrowServerUrl;
+    }
+
+    public void setSparrowServerUrl(String sparrowServerUrl) {
+        this.sparrowServerUrl = sparrowServerUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "SparrowProperties{" +
+                "sparrowServerUrl='" + sparrowServerUrl + '\'' +
+                '}';
+    }
 }

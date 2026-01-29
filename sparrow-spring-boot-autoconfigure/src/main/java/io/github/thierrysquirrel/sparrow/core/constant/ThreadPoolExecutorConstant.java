@@ -15,9 +15,9 @@
  **/
 package io.github.thierrysquirrel.sparrow.core.constant;
 
+import io.github.thierrysquirrel.jellyfish.thread.pool.ThreadPool;
 import io.github.thierrysquirrel.sparrow.core.builder.ThreadPoolExecutorBuilder;
 
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * ClassName: ThreadPoolExecutorConstant
@@ -28,7 +28,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @since JDK21
  **/
 public final class ThreadPoolExecutorConstant {
-    public static final ThreadPoolExecutor SPARROW_PRODUCER = ThreadPoolExecutorBuilder.builderSparrowProducerThreadPoolExecutor();
+    public static final ThreadPool SPARROW_PRODUCER = ThreadPoolExecutorBuilder.builderSparrowProducerThreadPoolExecutor();
 
     private ThreadPoolExecutorConstant() {
     }

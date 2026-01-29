@@ -17,7 +17,7 @@ package io.github.thierrysquirrel.sparrow.aspect.core.execution;
 
 import io.github.thierrysquirrel.sparrow.annotation.Producer;
 import io.github.thierrysquirrel.sparrow.core.exception.SparrowException;
-import io.github.thierrysquirrel.sparrow.server.common.netty.coder.utils.SerializerUtils;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.coder.utils.SerializerUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**

@@ -15,13 +15,8 @@
  **/
 package io.github.thierrysquirrel.sparrow.core.builder;
 
+import io.github.thierrysquirrel.jellyfish.thread.pool.ThreadPool;
 import io.github.thierrysquirrel.sparrow.core.builder.constant.ThreadPoolExecutorBuilderConstant;
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * ClassName: ThreadPoolExecutorBuilder
@@ -35,29 +30,8 @@ public class ThreadPoolExecutorBuilder {
     private ThreadPoolExecutorBuilder() {
     }
 
-    public static ThreadPoolExecutor builderSparrowProducerThreadPoolExecutor() {
-        ThreadFactory threadFactory = new ThreadFactoryBuilder()
-                .setNameFormat(ThreadPoolExecutorBuilderConstant.SPARROW_PRODUCER).build();
-        return new ThreadPoolExecutor(ThreadPoolExecutorBuilderConstant.SPARROW_PRODUCER_CORE_POOL_SIZE,
-                ThreadPoolExecutorBuilderConstant.SPARROW_PRODUCER_MAXIMUM_POOL_SIZE,
-                ThreadPoolExecutorBuilderConstant.KEEP_ALIVE_TIME,
-                TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(),
-                threadFactory,
-                new ThreadPoolExecutor.AbortPolicy()
-        );
-    }
-
-    public static ThreadPoolExecutor builderSparrowConsumerThreadPoolExecutor(int poolSize) {
-        ThreadFactory threadFactory = new ThreadFactoryBuilder()
-                .setNameFormat(ThreadPoolExecutorBuilderConstant.SPARROW_CONSUMER).build();
-        return new ThreadPoolExecutor(poolSize,
-                poolSize,
-                ThreadPoolExecutorBuilderConstant.KEEP_ALIVE_TIME,
-                TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(),
-                threadFactory,
-                new ThreadPoolExecutor.AbortPolicy()
-        );
+    public static ThreadPool builderSparrowProducerThreadPoolExecutor() {
+        int corePoolSize = ThreadPoolExecutorBuilderConstant.SPARROW_PRODUCER_CORE_POOL_SIZE;
+        return new ThreadPool(corePoolSize);
     }
 }

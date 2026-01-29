@@ -15,12 +15,12 @@
  **/
 package io.github.thierrysquirrel.sparrow.init.core.utils;
 
-import com.google.common.collect.Maps;
 import org.springframework.util.ObjectUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ClassName: AnnotatedMethodsUtils
@@ -35,7 +35,7 @@ public class AnnotatedMethodsUtils {
     }
 
     public static <T extends Annotation> Map<Method, T> getMethodAndAnnotation(Object bean, Class<T> annotation) {
-        Map<Method, T> methodAndAnnotation = Maps.newHashMap();
+        Map<Method, T> methodAndAnnotation = new ConcurrentHashMap<>();
         Method[] methods = bean.getClass().getMethods();
         for (Method method : methods) {
             T t = method.getAnnotation(annotation);

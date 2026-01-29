@@ -17,15 +17,13 @@ package io.github.thierrysquirrel.sparrow.init.core.factory.execution;
 
 import io.github.thierrysquirrel.sparrow.annotation.ConsumerListener;
 import io.github.thierrysquirrel.sparrow.annotation.SparrowListener;
-import io.github.thierrysquirrel.sparrow.core.builder.ThreadPoolExecutorBuilder;
 import io.github.thierrysquirrel.sparrow.init.core.factory.ConsumerInitFactory;
 import io.github.thierrysquirrel.sparrow.init.core.utils.AnnotatedMethodsUtils;
-import io.github.thierrysquirrel.sparrow.server.common.netty.consumer.init.client.SparrowConsumer;
+import io.github.thierrysquirrel.sparrow.server.common.hummingbird.consumer.init.client.SparrowConsumer;
 import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * ClassName: ConsumerInitFactoryExecution
@@ -47,9 +45,9 @@ public class ConsumerInitFactoryExecution {
         if (sparrowMessageList.isEmpty()) {
             return;
         }
-        ThreadPoolExecutor consumerInitThreadPoolExecutor = ThreadPoolExecutorBuilder.builderSparrowConsumerThreadPoolExecutor(sparrowMessageList.size());
+
         for (SparrowConsumer sparrowConsumer : sparrowMessageList) {
-            consumerInitThreadPoolExecutor.execute(sparrowConsumer);
+            new Thread(sparrowConsumer).start();
         }
     }
 }

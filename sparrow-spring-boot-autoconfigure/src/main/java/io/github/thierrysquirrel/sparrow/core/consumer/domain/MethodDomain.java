@@ -15,8 +15,6 @@
  **/
 package io.github.thierrysquirrel.sparrow.core.consumer.domain;
 
-import lombok.Data;
-
 import java.lang.reflect.Method;
 
 /**
@@ -27,9 +25,41 @@ import java.lang.reflect.Method;
  * @author ThierrySquirrel
  * @since JDK21
  **/
-@Data
 public class MethodDomain {
     private Object bean;
     private Method method;
     private Class<?> parameterType;
+
+    public Object getBean() {
+        return bean;
+    }
+
+    public void setBean(Object bean) {
+        this.bean = bean;
+    }
+
+    public Method getMethod() {
+        return method;
+    }
+
+    public void setMethod(Method method) {
+        this.method = method;
+    }
+
+    public Class<?> getParameterType() {
+        return parameterType;
+    }
+
+    public void setParameterType(Class<?> parameterType) {
+        this.parameterType = parameterType;
+    }
+
+    @Override
+    public String toString() {
+        return "MethodDomain{" +
+                "bean=" + bean +
+                ", method=" + method +
+                ", parameterType=" + parameterType +
+                '}';
+    }
 }
