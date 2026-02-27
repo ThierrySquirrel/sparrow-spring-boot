@@ -33,7 +33,7 @@ Final consistency
 <dependency>
     <artifactId>sparrow-spring-boot-starter</artifactId>
     <groupId>io.github.thierrysquirrel</groupId>
-    <version>2.5.0.0-RELEASE</version>
+    <version>2.5.0.1-RELEASE</version>
 </dependency>
 ``` 
 
@@ -49,7 +49,7 @@ sparrow.sparrow-server-url=127.0.0.1:6060 #If You Need A Cluster 127.0.0.1:6060,
 @SpringBootApplication
 public class SparrowApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(SparrowApplication.class, args);
 	}
 
 }
