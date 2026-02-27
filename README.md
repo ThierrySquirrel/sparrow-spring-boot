@@ -33,7 +33,7 @@ Final consistency
 <dependency>
     <artifactId>sparrow-spring-boot-starter</artifactId>
     <groupId>io.github.thierrysquirrel</groupId>
-    <version>2.5.0.1-RELEASE</version>
+    <version>2.5.0.2-RELEASE</version>
 </dependency>
 ``` 
 

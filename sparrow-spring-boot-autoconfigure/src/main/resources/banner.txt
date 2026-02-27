@@ -9,4 +9,4 @@ ${AnsiColor.BRIGHT_GREEN}
      `\       /'
        `-._.-'
           `
-sparrow version:2.5.0.1-RELEASE
+sparrow version:2.5.0.2-RELEASE
